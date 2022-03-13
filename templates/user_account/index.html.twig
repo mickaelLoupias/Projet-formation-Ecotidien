@@ -1,0 +1,266 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Utilisateur{% endblock %}
+
+{% block body %}
+
+
+<div id="user_home">
+    
+  <!-- HEADER -->
+    
+    
+    <header>
+
+        <nav>
+           <ul>
+                 <li class="link-logo">
+                       <a href="/"> <img src="/images/PICTO_ACCUEIL.svg" alt="home"></a>
+                 </li>
+                 <li>
+                     <img id="logo_color" src="/images/LOGO_HOME.svg" alt="logo_ecotidien">
+                 </li>
+                  {% if is_granted('ROLE_ADMIN') == TRUE %}
+                  <li>
+                     <a href="/admin"><i class="fa-solid fa-gear"></i> Admin</a>
+                  </li>
+                  {% endif %}        
+                 <li class="link-logo">
+                  <a href="/logout"> <img src="/images/PICTO_PROFIL.svg" alt="logout"></a>
+                 </li>
+
+           </ul>
+        </nav>
+
+        <div class="container">
+        
+            <section class="header-content">
+            
+                <article>
+                    <h1>Bonjour {{user.name}}, </h1>
+                    <div id="root"></div>
+                </article>
+
+                <article>
+                    <p>Content de vous revoir</p>
+                </article>
+            
+                <article>
+                    <p class="home_p_date text-center">Inscrit depuis le : </p>
+                    <p> {{user.subscribedate | date('d-m-Y')}}</p>
+                </article>
+
+                <article>
+                    <div>
+                        <p class="sumSize">{{sumEnergy.total | default(0)}} € </p>
+                        <p>d'économies</p>
+                    </div>
+
+                    <div>
+                    <img src="/images/Maison.svg" alt="logo_maison">
+                    </div>
+
+                    <div>
+                        <p class="sumSize">{{sumPoints.total | default(0)}} pts </p>
+                        <p>cumulés</p>
+                    </div>
+                </article>
+
+                <article class="progress_bar">
+                    
+                        <div class="trophee">
+                            <img class="trophee_jaune" src="/images/Barre_progression/TROPHEE_JAUNE.svg" alt="trophee">
+                            <img class="cercle_jaune" src="/images/Barre_progression/ELIPSE_JAUNE.svg" alt="cercle">
+                        </div>
+
+                        <div class="trophee" >
+                            <img class="trophee_jaune" src="/images/Barre_progression/TROPHEE_JAUNE.svg" alt="trophee">
+                            <img class="cercle_jaune" src="/images/Barre_progression/ELIPSE_JAUNE.svg" alt="cercle">
+                        </div>
+
+
+                        <div class="trophee" >
+                            <img class="trophee_jaune" src="/images/Barre_progression/TROPHEE_VIOLET.svg" alt="trophee">
+                            <img class="cercle_jaune" src="/images/Barre_progression/ELIPSE_VIOLET.svg" alt="cercle">
+                        </div>
+
+
+                        <div class="trophee" >
+                            <img class="trophee_jaune" src="/images/Barre_progression/TROPHEE_VIOLET.svg" alt="trophee">
+                            <img class="cercle_jaune" src="/images/Barre_progression/ELIPSE_VIOLET.svg" alt="cercle">
+                        </div>
+
+                        <div class="trophee">
+                            <img class="trophee_jaune" src="/images/Barre_progression/TROPHEE_VIOLET.svg" alt="trophee">
+                            <img class="cercle_jaune" src="/images/Barre_progression/ELIPSE_VIOLET.svg" alt="cercle">
+                        </div>
+ 
+                </article>
+            </section>
+        </div>
+    </header>
+
+ 
+
+
+
+    <!-- Navigation du bas -->
+    {# <nav class="container-fluid ">
+
+      <div class=" d-flex justify-content-between fixed-bottom z-index-100">
+            <a href=""><img src="/images/PICTO_LISTE_CHALLENGES.svg" alt=""></a>
+            <a href=""><img src="/images/PICTO_CALENDRIER.svg" alt=""></a>
+      </div>
+
+    </nav> #}
+
+
+    <main class="main-container">
+
+        <h3 class="home_h3">Challenges en cours</h3>
+
+        <section class="card_challenge">
+            {% for item in user.challengeUsers %}
+               {% if item.processus !=1 %}
+
+                <div class="card_wrap">
+                    <div class="card_content">
+                        <div class="card_content_icon">
+                            <div class="content_icon">
+                                <p class="tag tag1_card">{{item.IdChallenge.category}}</p>
+                                <p class="tag tag2_card">{{item.IdChallenge.type}}</p>
+                            </div>
+                            <img src="/images/HOME_CARDS/CHALLENGE.svg" alt="">
+                        </div>
+
+                        <div class="card_bloc-message">
+                            <p class="home_p_card">{{item.IdChallenge.description}}</p>
+                        </div>
+
+                        <div class="card_bloc-info">
+                                    <p>NIVEAU : {{item.IdChallenge.niveau}}</p>
+                                    <p>Points : {{item.IdChallenge.points}}</p> 
+                        </div>
+                        
+                    </div>
+                    <div class="btn_box">
+                       <a class="btn_valid" href="{{path('valid_challenge', {'id':item.id})}}">Valider mon challenge</a>
+                    </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+        
+        
+        </section>
+
+        <h3 class="home_h3">Challenges Disponibles </h3>
+
+        <section class="card_challenge">
+
+              {% for item in results %}  
+            
+                 <div class="card_wrap">
+                    <div class="card_content">
+                        <div class="card_content_icon">
+                            <div class="content_icon">
+                                <p class="tag tag1_card">{{item.category}} </p>
+                                <p class="tag tag2_card">{{item.type}}</p>
+                            </div>
+                            <img src="/images/HOME_CARDS/CHALLENGE.svg" alt="">
+                        </div>
+                        <div  class="card_bloc-message">
+                            <p class="home_p_card">{{item.description}}</p>
+                        </div>
+                        
+                        <div class="card_bloc-info">
+                                            <p>NIVEAU : {{item.niveau}}</p>
+                                            <p>Points : {{item.points}}</p> 
+                        </div>  
+                    </div>
+
+                    <div class="btn_box"> 
+                            <a class="btn_valid" href="{{path('start_challenge', {'id':item.id})}}">Commencer</a>
+                    </div>
+                </div>
+
+              {% endfor %}
+        </section>
+        
+
+        <h3 class="home_h3">Astuces</h3>
+        
+        <section class="card_astuce">
+
+           
+             {% for item in resultsAstuces |slice(0,3) %}  
+                <div class="card_wrap astuce_card">
+                    <div class="astuce_content">
+                        <div class="card_content_icon">
+                            <div class="content_icon">
+                                <p class="tag tag1_card">{{item.type}}</p>
+                            </div>
+                            <img src="/images/HOME_CARDS/CHALLENGE.svg" alt="">
+                        </div>
+                            <p class="p_overflow">{{item.description}}</p>
+                            <p class="astuce_text">Voir l'astuce</p>
+                    </div>
+                    
+                </div>
+             {% endfor %}
+          
+        </section>
+
+    </main>
+
+    <footer>
+
+         <section class="commun_container footer-wrap" >
+
+                <div class="bloc-left">
+                
+                    <article class="bloc-logo-footer">
+                            <img  src="/images/LOGO_BLANC.svg" alt="logo_blanc">
+                            <p>Laissez vous guider et intégrez <br> pas à pas une routine écolo à <br> votre foyer.</p>
+                    </article>
+                     <form class="bloc-subscribe">
+                        <label for="email">Inscrivez-vous à notre<span> newsletter<span></label>
+                        <div class="group-form">  
+                            <input id="email" type="email" placeholder="Email">
+                            <button>s'inscrire</button>
+                        </div>
+                    </form>
+                
+                </div>
+                <div class="bloc-right">
+                    <article class="bloc-social">
+                            <h4>Suivez-nous  </h4>
+                            <ul>
+                                <li>
+                                    <a href ="https://www.instagram.com/accounts/login/" >
+                                        <img src="/images/Footer/INSTAGRAM.svg" alt="Image Instagram" ><span>Instagram</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://fr-fr.facebook.com/" >
+                                         <img src="/images/Footer/FACEBOOK.svg" alt="Image facebook" ><span>Facebook</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/" >
+                                        <img src="/images/Footer/TWITTER.svg" alt="image Twitter" ><span>Twitter</span>
+                                    </a>
+                                </li>
+                            </ul>
+                    </article>
+                
+                </div>
+
+                </section>
+
+    </footer>
+
+</div>
+
+
+{% endblock %}
+  

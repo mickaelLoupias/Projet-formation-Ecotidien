@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QUIZ START{% endblock %}
+
+{% block body %}
+
+<div id="quiz_wrap">      
+    <main id="quiz">
+        <div class="wrapper">         
+                <div class="logo">
+                    <img src="/images/LOGO_HOME.svg" alt="logo ecoditient">
+                </div>
+                    
+                <section id="progress">
+                    <h1 class="suivi">Question</h1>
+                    <div class="barre">
+                        <div class="mybar"></div>
+                    </div>
+                </section>
+
+                <section class="quiz_content">
+                    <p class="question"></p>
+                    <div class="choice"></div>
+                    <button class="btn_large next">COMMENCER LE QUIZ</button>
+                </section>
+        </div>
+
+    </main>
+
+</div>
+{% endblock %}
+
+  {% block javascripts %}
+            <script type="text/javascript" src="/JS/quiz.js"></script>
+          
+ {% endblock %}

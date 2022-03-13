@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<div id="login">
+
+    <header>
+        <div class="logo-connect">
+             <a href="/"><img src="/images/LOGO_HOME.svg" alt="image logo en couleur ecotidien"></a>
+        </div>
+    </header> 
+
+    <main>
+      
+        <form method="post" class="form_connect">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+           
+            <h3>Connexion </h3>
+            
+            <div class="form-group">
+                <label for="email">
+                    <i class="fa-solid fa-envelope"></i>
+                </label>
+                <input type="email" value="{{last_username}}" name="email" id="email" aria-describedby="emailHelp" placeholder="Entrez votre adresse mail" >
+           </div>
+
+           <div class="form-group">
+                <label for="password">
+                   <i class="fa-solid fa-key"></i>
+                </label>
+                <input type="password"  name="password" id="password" placeholder="Entrez votre mot de passe">
+           </div>
+           <a href="#">Mot de passe oublié ?</a>
+           
+         
+            <input class="button" type="submit" value="Se connecter">
+            <p>Pas encore de compte ? <a href="/user/new">Créer un compte</a></p>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+        </form>
+
+        <aside class="circle">
+          <p>“C'est en initiant les plus petites actions que l'on amorce de grands changements.”</p>
+          <p>Pierre Rahbi</p> 
+        </aside>
+
+       
+    </main> 
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+
+<div id="subscribe">
+
+    <header>
+        <div class="logo-connect">
+             <img src="/images/LOGO_HOME.svg" alt="">
+        </div>
+    </header> 
+
+    <h1>Formulaire d'inscription</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+</div>
+
+
+
+
+  
+{% endblock %}

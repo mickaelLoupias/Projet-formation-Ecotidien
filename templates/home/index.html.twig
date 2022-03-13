@@ -1,0 +1,243 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eco-tidien{% endblock %}
+
+{% block body %}
+
+
+<div id="home_nonconnect">
+
+    <div class="modal-container">
+        <div class="overlay"></div>
+        <div class="modal">
+            <button class="close-modal modal-trigger">X</button>
+            <h2 class="modal-title"> *** AVERTISSEMENT *** </h2>
+            <p class="modal-text">Cette plateforme n'est en aucun cas un site pour un usage particulier</p>
+            <p class="modal-text">Plateforme de démonstration</p>
+            <p class="modal-text">Les données stockées ne sont pas distribuées à un tiers</p>
+        </div>
+    </div>
+
+
+    <header>
+
+            <nav>
+                <ul>
+                    <li><a href="/about">Qui sommes-nous</a></li>
+                    <li><img src="images/LOGO_HOME.svg" alt="logo" class="home-logo"></li>
+                    <li><a class="nav-link" href="{{ path('app_login') }}">Me connecter</a></li>
+                </ul>  
+            </nav>
+       
+
+            <section class="commun_container">
+
+                <h1>Routine écologique personnalisée</h1>
+                <div class="d-flex bloc-content">
+                    <img src="images/PICTO_CHALLENGES.svg" alt="image recompense">
+                    <p class="p_text">Challenges éco-geste quotidiens</p>
+                </div>
+                            
+
+                <div class="btn_large">
+                    <a href="/user/new">Découvrir mon premier challenge <span class="chev">></span><span class="chev">></span><span class="chev">></span> </a>
+                </div>
+                <p class="p_text">L'écologie ludique pour toute la famille !</p>
+
+                <div class="d-flex">
+                    <div class="bloc-profil">
+                        <img src="images/HOME_NON_CONNECTEE/PICTO_PROFIL1.png" alt="profil photo 1">
+                        <img  src="images/HOME_NON_CONNECTEE/PICTO_PROFIL2.png" alt="profil photo 2">
+                        <img src="images/HOME_NON_CONNECTEE/PICTO_PROFIL3.png" alt="profil photo 3">    
+                    </div>
+
+                    <div class="bloc-membre">
+                        <p>Nos Eco-membres</p>
+                        <p class="bloc-avis">
+                            <img src="images/HOME_NON_CONNECTEE/PICTO_ETOILE_JAUNE.png" alt="logo etoile">
+                            <span>&nbsp 4.5 &nbsp (156K Avis)</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+                
+
+           
+        </header>
+
+
+
+        <main class="commun_container">
+
+            <h2>Des Objectifs concrets</h2>
+
+            <section class="bloc-objectif">
+
+
+                <article class="item-objectif">
+                        <div class="item-box-img">
+                          <img src="images/HOME_NON_CONNECTEE/PICTO_ECONOMIES.svg" alt="tirelire">
+                        </div>
+                        <h3 >Ancrer des habitudes</h3>
+                        <p>en répétant des petits gestes à portée de tous.</p>
+                </article>
+
+                <article class="item-objectif">
+                        <div class="item-box-img">
+                          <img src="images/HOME_NON_CONNECTEE/PICTO_CALENDRIE.svg" alt="calendrier">
+                        </div>
+                        <h3>Faire des économies</h3>
+                        <p>en consommant moins grâce  aux éco-gestes.</p>
+                </article>
+                
+                  <article class="item-objectif">
+                        <div class="item-box-img">
+                          <img src="images/HOME_NON_CONNECTEE/PICO_PUZZLE.svg" alt="puzzle">
+                        </div>
+                        <h3>Répartir les tâches</h3>
+                        <p>dans le foyer et sensibiliser les plus petits.</p>
+                </article>
+              
+            </section>
+            
+            <div class="d-flex d-flex-justify-center">
+                    <div class="btn_large">
+                        <a href="/user/new">S'inscrire dès maintenant <span class="chev">></span><span class="chev">></span><span class="chev">></span></a>
+                    </div>
+            </div>
+
+
+            <h2>Parole d'Eco Membres</h2>
+
+            <section class="bloc-comments">
+                <article class="comment-wrap">
+                    <div class="comment-img">
+                        <img src="images/HOME_NON_CONNECTEE/PICTO_PROFIL5.svg" alt="photo profil">
+                    </div>
+                    <div class="comment-content">
+                            <div class="bloc-info">
+                                <p>Quentin - 22 Ans</p>
+                                <p>02.11.2021</p>
+                            </div>
+                            <p class="bloc-content">
+                                “Je ne pensais pas qu’introduire l’écologie dans ma vie quotidienne pourrait être si facile. Quelques petits gestes, un peu de motivation, bref rien de bien compliqué.”
+                            </p>
+                    </div>
+                </article>
+
+                <article class="comment-wrap">
+                    <div class="comment-img">
+                        <img src="images/HOME_NON_CONNECTEE/PICTO_PROFIL6.svg" alt="photo profil">
+                    </div>
+                    <div class="comment-content">
+                            <div class="bloc-info">
+                                <p>Roman - 26 Ans</p>
+                                <p>11.10.2021</p>
+                            </div>
+                            <p class="bloc-content">
+                                “Je me sers d’Ecotidien depuis 6 mois, ma famille a réussi a adopter des
+                                            éco-gestes petit
+                                            à
+                                            petit. Tout le monde s’y est mis et prend plaisir à participer aux tâches du
+                                            foyer !”
+                            </p>
+                    </div>
+                </article>
+
+                <article class="comment-wrap">
+                    <div class="comment-img">
+                        <img src="images/HOME_NON_CONNECTEE/PICTO_PROFIL4.svg" alt="photo profil">
+                    </div>
+                    <div class="comment-content">
+                            <div class="bloc-info">
+                                <p>Quentin - 22 Ans</p>
+                                <p>02.11.2021</p>
+                            </div>
+                            <p class="bloc-content">
+                              “Je me sers d’Ecotidien depuis 3 mois, j'ai réussi a adopter des
+                                            éco-gestes petit
+                                            à
+                                            petit. Je suis ravie de faire des économies tout en ayant des gestes écolos !”
+                            </p>
+                    </div>
+                </article>
+
+            </section>
+
+                         
+                            {# <a class="homme_nonconnect_bouton" href="">Lire plus d'avis d'éco membres > </a> #}
+                          
+                        
+
+            <div class="d-flex d-flex-justify-center">
+                    <div class="btn_large">
+                        <a href="/user/new">S'inscrire dès maintenant <span class="chev">></span><span class="chev">></span><span class="chev">></span></a>
+                    </div>
+            </div>
+            
+            <div class="bloc-logo">
+                <img id="Homme_nonconnect_picto_go" src="images/HOME_NON_CONNECTEE/PICTO_GO_GO.svg" alt="">
+            </div>
+
+        </main>
+           
+
+            <!-- START : FOOTER -->
+
+            <footer>
+
+                <section class="commun_container footer-wrap" >
+
+                <div class="bloc-left">
+                
+                    <article class="bloc-logo-footer">
+                            <img  src="images/LOGO_BLANC.svg" alt="logo_blanc">
+                            <p>Laissez vous guider et intégrez <br> pas à pas une routine écolo à <br> votre foyer.</p>
+                    </article>
+                     <form class="bloc-subscribe">
+                            <label for="email">Inscrivez-vous à notre<span> newsletter<span></label>
+                            <div class="group-form">
+                                <input id="email" type="email" placeholder="Email">
+                                <button>s'inscrire</button>
+                            </div>
+                    </form>
+                
+                </div>
+                <div class="bloc-right">
+                    <article class="bloc-social">
+                            <h4>Suivez-nous  </h4>
+                            <ul>
+                                <li>
+                                    <a href ="https://www.instagram.com/accounts/login/" >
+                                        <img src="images/Footer/INSTAGRAM.svg" alt="Image Instagram" ><span>Instagram</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://fr-fr.facebook.com/" >
+                                         <img src="images/Footer/FACEBOOK.svg" alt="Image facebook" ><span>Facebook</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/" >
+                                        <img src="images/Footer/TWITTER.svg" alt="image Twitter" ><span>Twitter</span>
+                                    </a>
+                                </li>
+                            </ul>
+                    </article>
+                
+                </div>
+
+                </section>
+               
+               
+            </footer>
+</div> 
+
+
+
+{% endblock %}
+
+  {% block javascripts %}
+            <script type="text/javascript" src="/JS/index.js"></script>
+          
+ {% endblock %}

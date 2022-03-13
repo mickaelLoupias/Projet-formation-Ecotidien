@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A Propos de nous{% endblock %}
+
+{% block body %}
+
+<div id="about">
+
+        <header>
+            <nav>
+                        <ul>
+                            <li>
+                                 <a href="/">
+                                    <img src="images/LOGO_HOME.svg" alt="logo" class="home-logo">
+                                 </a>
+                            </li>
+                            <li><a class="nav-link" href="{{ path('app_login') }}">Me connecter</a></li>
+                        </ul>  
+             </nav>
+        </header>
+
+        <h1>Projet de Formation</h1>
+        <main class="commun_container">
+            <div class="projet">
+               <h2>Notre concept</h2>
+                <p>Aider et accompagner les foyers dans leur transition "écolo" en leur donnant des habitudes de vie simples et efficaces.</p>
+                    
+                <p>  Comment? Par le biais d'une webapp ludique avec suivi personnalisé. </p>
+                        
+                <p> Voici le projet de fin de parcours réalisé par des pirates développeurs et designeurs/ses de la promo Shakti.<p>
+                        
+                <p> Au programme: des challenges amusants, des objectifs concrets pour adopter une routine écologique personnalisée axée sur la gamification.
+                        </p>
+            </div>
+
+            <div class="team">
+               <h2>L'équipe</h2>
+                <section class="box-team-wrapper">
+                    
+                        <article class="block designer">
+                             <h3>Les designers UI/UX</h3>
+                                <ul>
+                                    <li>Aurelie DANIEL</li>
+                                    <li>Rebecca ANGLIO</li>
+                                    <li>Dimitar GROZEV</li>
+                                    <li>Loris GROS</li>
+                                </ul>
+                        </article>
+
+                        <article class="block dev">
+                            <h3>Les developpeurs WEB</h3>
+                            <ul>
+                                <li>Mickael LOUPIAS</li>
+                                <li>Adrien AUBOURG</li>
+                            </ul>
+                        </article>
+                </section>
+            </div>
+
+        </main>
+
+
+</div>
+
+{% endblock %}
